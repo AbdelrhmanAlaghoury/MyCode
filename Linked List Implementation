@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+typedef struct N{
+    int data;
+    struct N * next;
+ }node;
+   
+node *  head  = NULL ; // the linked list empty  
+
+node* insert_node_atEnd(int data)
+{
+
+    if(head == NULL)
+    {
+        printf ("first call\n");
+        node* temp = (node*)malloc(sizeof (node));
+        temp->data = data;
+        temp->next = NULL;
+        head = temp;
+    }
+    else
+    {
+        printf ("second call\n");
+        node *p=head,*temp = (node*)malloc(sizeof (node));
+        temp->next = NULL;
+        temp->data = data;
+        while(p->next != NULL){
+            p = p->next;        
+                }
+        p->next=temp;
+    }
+    return head;
+}
